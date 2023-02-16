@@ -25,4 +25,4 @@ EXPOSE 1344
 EXPOSE 80 443
 
 CMD ["ls", "-la"]
-CMD ["haproxy", "-f", "/opt/haproxy-letsencrypt/haproxy.cfg"]
+#CMD ["haproxy", "-f", "/opt/haproxy-letsencrypt/haproxy.cfg"]
