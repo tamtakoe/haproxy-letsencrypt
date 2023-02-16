@@ -24,5 +24,5 @@ RUN haproxy -c -f /opt/haproxy-letsencrypt/haproxy.cfg
 EXPOSE 1344
 EXPOSE 80 443
 
-CMD ["ls", "-la", "/opt"]
+CMD ["ls", "-la", "/opt/haproxy-letsencrypt"]
 #CMD ["haproxy", "-f", "/opt/haproxy-letsencrypt/haproxy.cfg"]
