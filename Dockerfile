@@ -1,10 +1,10 @@
 FROM haproxy:latest
 
 MAINTAINER MLC team
+USER root
 
 ENV APPLICATION_NAME=haproxy-letsencrypt
 WORKDIR /opt/$APPLICATION_NAME
-USER root
 
 #Only full version of Node image has update-ca-certificates command.
 #For other version of node images we should install it manually. E.g.
