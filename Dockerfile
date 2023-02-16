@@ -14,7 +14,7 @@ WORKDIR /opt/$APPLICATION_NAME
 
 COPY ./ ./
 
-RUN ls -la
+RUN ls /opt/haproxy-letsencrypt
 
 RUN mkdir -p /var/lib/haproxy/haproxy_server_state
 RUN mkdir -p /run/haproxy
