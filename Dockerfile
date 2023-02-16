@@ -14,8 +14,6 @@ WORKDIR /opt/$APPLICATION_NAME
 
 COPY ./ ./
 
-RUN ls /opt/haproxy-letsencrypt
-
 RUN mkdir -p /var/lib/haproxy/haproxy_server_state
 RUN mkdir -p /run/haproxy
 ##
@@ -26,4 +24,5 @@ RUN haproxy -c -f /opt/haproxy-letsencrypt/haproxy.cfg
 EXPOSE 1344
 EXPOSE 80 443
 
+CMD ["ls", "-la"]
 CMD ["haproxy", "-f", "/opt/haproxy-letsencrypt/haproxy.cfg"]
