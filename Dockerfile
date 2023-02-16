@@ -4,6 +4,7 @@ MAINTAINER MLC team
 
 ENV APPLICATION_NAME=haproxy-letsencrypt
 WORKDIR /opt/$APPLICATION_NAME
+USER root
 
 #Only full version of Node image has update-ca-certificates command.
 #For other version of node images we should install it manually. E.g.
@@ -18,7 +19,7 @@ RUN mkdir -p /run/haproxy
 ##
 
 # Validate convig
-RUN haproxy -c -f $APPLICATION_NAME/haproxy.cfg
+RUN haproxy -c -f ./haproxy.cfg
 
 EXPOSE 1344
 EXPOSE 80 443
