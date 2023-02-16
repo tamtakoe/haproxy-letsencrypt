@@ -1,7 +1,7 @@
 FROM haproxy:latest
 
 MAINTAINER MLC team
-USER root
+#USER root
 
 ENV APPLICATION_NAME=haproxy-letsencrypt
 WORKDIR /opt/$APPLICATION_NAME
@@ -15,7 +15,7 @@ WORKDIR /opt/$APPLICATION_NAME
 COPY ./ ./
 
 RUN mkdir -p /var/lib/haproxy/haproxy_server_state
-RUN mkdir -p /run/haproxy
+#RUN mkdir -p /run/haproxy
 ##
 
 # Validate convig
