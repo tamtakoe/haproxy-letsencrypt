@@ -19,9 +19,9 @@ RUN mkdir -p /run/haproxy
 ##
 
 # Validate convig
-RUN haproxy -c -f ./haproxy.cfg
+RUN haproxy -c -f /opt/haproxy-letsencrypt/haproxy.cfg
 
 EXPOSE 1344
 EXPOSE 80 443
 
-CMD ["haproxy", "-f", "./haproxy.cfg"]
+CMD ["haproxy", "-f", "/opt/haproxy-letsencrypt/haproxy.cfg"]
