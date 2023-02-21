@@ -16,6 +16,7 @@ COPY ./ ./
 
 RUN mkdir -p /var/lib/haproxy/haproxy_server_state
 RUN mkdir -p /run/haproxy
+RUN mkdir -p /etc/haproxy/certs/
 ##
 
 # Validate convig
