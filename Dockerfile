@@ -22,7 +22,7 @@ RUN mkdir -p /run/haproxy
 RUN haproxy -c -f /opt/haproxy-letsencrypt/haproxy.cfg
 
 EXPOSE 1344
-EXPOSE 80 443
+EXPOSE 80 443 8182
 
 #CMD ["ls", "-la", "/opt/haproxy-letsencrypt"]
 CMD ["haproxy", "-f", "/opt/haproxy-letsencrypt/haproxy.cfg"]
