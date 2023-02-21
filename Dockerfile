@@ -24,7 +24,7 @@ RUN openssl version
 #RUN openssl req -x509 -newkey rsa:4096 -keyout /etc/haproxy/certs/key.pem -out /etc/haproxy/certs/cert.pem -sha256 -days 3650 -subj '/CN=example.com' -nodes
 RUN openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -subj '/CN=example.com' -keyout ./key.pem -out ./cert.pem
 RUN cat ./key.pem ./cert.pem > /etc/haproxy/certs/example.com.pem
-RUN rm ./key.pem ./cert.pem
+RUN #rm ./key.pem ./cert.pem
 RUN ls -la /etc/haproxy/certs/
 #RUN cat /etc/haproxy/certs/example.com.pem
 
@@ -53,4 +53,5 @@ EXPOSE 1344
 EXPOSE 80 443 8182
 
 #CMD ["ls", "-la", "/opt/haproxy-letsencrypt"]
-CMD ["haproxy", "-f", "/opt/haproxy-letsencrypt/haproxy.cfg"]
+#CMD ["haproxy", "-f", "/opt/haproxy-letsencrypt/haproxy.cfg"]
+CMD ["./start.sh"]
