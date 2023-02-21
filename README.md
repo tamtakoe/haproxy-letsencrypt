@@ -3,6 +3,7 @@
 ```sh
 docker build -t haproxy-letsencrypt .
 docker run --rm -d -v /tmp/:/run/haproxy/ -p 8182:8182 -p 80:80 haproxy-letsencrypt
+docker run --rm -d -v /etc/ssl/:/etc/haproxy/certs/ -p 8182:8182 -p 80:80 haproxy-letsencrypt
 #docker run --rm -d -v /opt/haproxy-letsencrypt:/opt/haproxy-letsencrypt -v /tmp/:/run/haproxy/ -p 8182:8182 -p 80:80 haproxy-letsencrypt
 ```
 
@@ -18,6 +19,9 @@ sudo snap refresh core
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 
+sudo certbot certonly --webroot -w /var/www/vooh.ru -d www.vooh.ru -d vooh.ru
+
 # Prepare server
-mkdir -p /var/www/vooh.ru
+sudo mkdir -p /var/www/vooh.ru
+sudo mkdir -p /etc/ssl/vooh.ru
 ```
