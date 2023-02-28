@@ -2,11 +2,7 @@
 
 ```sh
 docker build -t haproxy-letsencrypt .
-docker run --rm -d -v /tmp/:/run/haproxy/ -p 8182:8182 -p 80:80 haproxy-letsencrypt
-docker run --rm -d -v /etc/ssl/:/etc/haproxy/certs/ -p 8182:8182 -p 80:80 haproxy-letsencrypt
-docker run --rm -d -v /etc/letsencrypt/live/:/etc/haproxy/certs/ -p 8182:8182 -p 80:80 haproxy-letsencrypt
-docker run --rm -d -v /etc/haproxy/certs/:/etc/haproxy/certs/ -p 8182:8182 -p 80:80 haproxy-letsencrypt
-#docker run --rm -d -v /opt/haproxy-letsencrypt:/opt/haproxy-letsencrypt -v /tmp/:/run/haproxy/ -p 8182:8182 -p 80:80 haproxy-letsencrypt
+docker run --rm -d -v /etc/haproxy/certs/:/etc/haproxy/certs/ -p 80:80 -p 443:443 -p 8182:8182 haproxy-letsencrypt
 ```
 
 #### Install Certbot
@@ -21,7 +17,7 @@ sudo snap refresh core
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 
-sudo certbot certonly --webroot -w /var/www/vooh.ru -d vooh.ru -d www.vooh.ru
+#sudo certbot certonly --webroot -w /var/www/vooh.ru -d vooh.ru -d www.vooh.ru
 sudo certbot certonly --standalone --non-interactive --agree-tos --email tamtakoe@gmail.com --http-01-port 8888 -d vooh.ru -d www.vooh.ru
 
 # Successfully received certificate.
